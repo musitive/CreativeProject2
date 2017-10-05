@@ -29,7 +29,7 @@ var citiesArr = [
     "Hoi An",
     "Saint Petersburg",
     "Roatan",
-    "Marrakech"
+    "Marrakech",
     "Beijing",
     "Ambergris Caye",
     "Taipei",
@@ -56,6 +56,7 @@ function initialize() {
 }
 
 function codeAddress() {
+    var index = Math.floor() % citiesArr.length;
     var address = citiesArr[0];
     geocoder.geocode( { 'address': address}, function(results, status) {
         if (status == 'OK') {
