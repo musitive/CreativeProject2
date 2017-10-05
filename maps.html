@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+       #map {
+        padding: 15%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      /*html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }*/
+    </style>
+  </head>
+  <body>
+      <script>
+      var citiesArr = [
+     {"city":"Tokyo","country":"JP"},
+     /*"New York City",
+     "Sao Paulo",
+     "Seoul",
+     "Mexico City",
+     "Osaka",
+     "Manila",
+     "Mumbai",
+    "Belhi",
+     "Jakarta",
+     "Lagos",
+     "Kolkata",
+     "Cairo",
+     "Los Angeles",
+     "Buenos Aires",
+     "Rio de Janeiro",
+     "Bali",
+     "London",
+     "Paris",
+     "Rome",
+     "Crete",
+     "Barcelona",
+     "Siem Reap",
+     "Prague",
+     "Phuket",
+     "Istanbul",
+     "Jamaica",
+     "Hoi An",
+     "Saint Petersburg",
+     "Roatan",
+     "Marrakech",
+     "Beijing",
+     "Ambergris Caye",
+     "Taipei",
+     "St Martin",
+     "Singapore",
+     "Playa del Carmen",
+     "Dubai",
+     "Grand Cayman",
+     "Honolulu",
+     "Kathmandu",
+     "Bora Bora",
+     "Cusco"*/
+    ]
+    var geocoder;
+    var map;
+    function initialize() {
+      geocoder = new google.maps.Geocoder();
+      var latlng = new google.maps.LatLng(-34.397, 150.644);
+      var mapOptions = {
+        zoom: 8,
+        center: latlng
+      }
+      map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    }
+    function codeAddress() {
+      var index = 0;
+       // var index = Math.floor(Math.random() * citiesArr.length);
+        console.log(citiesArr.length);
+        console.log(index);
+      var address = citiesArr[index].city;
+      geocoder.geocode( { 'address': address}, function(results, status) {
+        if (status == 'OK') {
+          map.setCenter(results[0].geometry.location);
+          var marker = new google.maps.Marker({
+              map: map,
+              position: results[0].geometry.location
+          });
+        } else {
+          alert('Geocode was not successful for the following reason: ' + status);
+        }
+      });
+      
+    }
+    $(document).ready(function() {
+      console.log("hello");    
+      $("#weatherButton").click(function(e){
+          var city = citiesArr[index].city;
+          var country = citiesArr[index].country;
+          console.log(city);
+          console.log(country);
+          e.preventDefault();
+          var myurl= "https://api.wunderground.com/api/4b5689205b603758/geolookup/conditions/q/";
+          myurl += country + "/" + city;
+          myurl += ".json";
+          console.log(myurl);
+          $.ajax({
+            url : myurl,
+            dataType : "json",
+            success : function(parsed_json) {
+              var location = parsed_json['location']['city'];
+              var temp_string = parsed_json['current_observation']['temperature_string'];
+              var current_weather = parsed_json['current_observation']['weather'];
+              everything = "<ul>";
+              everything += "<li>Location: "+location;
+              everything += "<li>Temperature: "+temp_string;
+              everything += "<li>Weather: "+current_weather;
+              everything += "</ul>";
+              $("#weather").html(everything);
+            }
+          });
+        });
+      });
+    
+</script>
+  <body onload="initialize()">
+   <div id="map"></div></div>
+    <div>
+      <input id="weatherButton" type="button" value="Random Location" onclick="codeAddress()">
+    </div>
+  </body>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNMuYIbsBcPGYLiZMrApIgBTTSD9cOd6Y&callback=initMap"
+    async defer></script>
+    <p>Current Weather<p>
+      <div id="weather">No weather</div>
+  </body>
+</html>
