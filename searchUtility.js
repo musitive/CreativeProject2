@@ -1,7 +1,9 @@
 var citiesArr = [
-    "Tokyo",
-    "New York City",
-    "Sao Paulo",
+    {"city":"Tokyo", 
+    "country":"JP"},
+    {"city":"New York City",
+    "country":"US"},
+    /*"Sao Paulo",
     "Seoul",
     "Mexico City",
     "Osaka",
@@ -41,7 +43,7 @@ var citiesArr = [
     "Honolulu",
     "Kathmandu",
     "Bora Bora",
-    "Cusco"
+    "Cusco"*/
 ]
 var geocoder;
 var map;
