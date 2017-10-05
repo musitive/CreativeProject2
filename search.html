@@ -14,26 +14,15 @@
         <script src="searchUtility.js"></script>
     </head>
 
-    <body>
-        <div id="map" style="width: 320px; height: 480px;"></div>
-        <div>
-            <input id="address" type="textbox" value="Sydney, NSW">
-            <input type="button" value="Encode" onclick="codeAddress()">
-        </div>
-
-        <header>
-            <h1>Travel Search</h1>
-        </header>
-        <article>
-            <section id="travel">
-                <div id="searchArea">
-                    <input type="submit" value="Search" id="travelButton">
-                </div>
-            </section>
-
-            <section id="weather">
-            </section>
-        </article>
-    </body>
+    <body onload="initialize()">
+        <div id="map"></div>
+         <div>
+           <input id="weatherButton" type="button" value="Random Location">
+             </div>
+             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNMuYIbsBcPGYLiZMrApIgBTTSD9cOd6Y&callback=initMap" async defer></script>
+             <p>Current Weather</p>
+               <div id="weather">No weather</div>
+             </div>
+        </body>
 
 </html>

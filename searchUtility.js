@@ -18,7 +18,7 @@ var citiesArr = [
     {"city":"Belhi",
     "country":"NP"},
     {"city":"Jakarta",
-    "country":"IN"},
+    "country":"IN"}/*,
     {"city":"Lagos",
     "country":"BR"},
     {"city":"Kolkata",
@@ -84,17 +84,49 @@ var citiesArr = [
     {"city":"Bora Bora",
     "country":"BR"},
     {"city":"Cusco",
-    "country":"BR"}
+    "country":"BR"}*/
 ]
 
+var geocoder;
+var map;
+function initialize() {
+  geocoder = new google.maps.Geocoder();
+  var latlng = new google.maps.LatLng(-34.397, 150.644);
+  var mapOptions = {
+    zoom: 8,
+    center: latlng
+  }
+  map = new google.maps.Map(document.getElementById('map'), mapOptions);
+}
+/*
+function codeAddress() {
+    var index = 0;
+    var index = Math.floor(Math.random() * citiesArr.length);
+      console.log(citiesArr.length);
+      console.log(index);
+    var address = citiesArr[index].city;
+    geocoder.geocode( { 'address': address}, function(results, status) {
+      if (status == 'OK') {
+        map.setCenter(results[0].geometry.location);
+        var marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
+        });
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
+    
+  }
+*/
 $(document).ready(function() {
-    $("#travelButton").click(function(e) {
-        var value = $("#cityField").val();
-        console.log(value);
+    $("#weatherButton").click(function(e) {
+        
+        
+        var index = Math.floor(Math.random() * citiesArr.length);
         e.preventDefault();
-        $("#displayCity").text(value);
 
-        var myurl= "https://api.wunderground.com/api/7f300afd33e5dd5c/geolookup/conditions/q/IT/Rome.json";
+        var myurl= "https://api.wunderground.com/api/7f300afd33e5dd5c/geolookup/conditions/q/" + citiesArr[index]['country'] + "/" + citiesArr[index]['city'] + ".json";
         console.log(myurl);
         $.ajax({
             url : myurl,
@@ -111,6 +143,21 @@ $(document).ready(function() {
                 $("#weather").html(everything);
             }
         });
+
+         console.log(citiesArr.length);
+         console.log(index);
+       var address = citiesArr[index].city;
+       geocoder.geocode( { 'address': address}, function(results, status) {
+         if (status == 'OK') {
+           map.setCenter(results[0].geometry.location);
+           var marker = new google.maps.Marker({
+               map: map,
+               position: results[0].geometry.location
+           });
+         } else {
+           alert('Geocode was not successful for the following reason: ' + status);
+         }
+       });
     });
 
 });
