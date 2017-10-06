@@ -65,11 +65,14 @@ var citiesArr = [
 
 var images = [
     "<img src=\"http://www.sitkanature.org/wordpress/wp-content/gallery/20100923/20100923-overcast-2.jpg\">",
-    "<img src=\"https://images-na.ssl-images-amazon.com/images/I/41FJQwQLfgL.jpg\">",
-    "<img src=\"http://www.telegraph.co.uk/content/dam/technology/2017/01/11/hushme_trans_NvBQzQNjv4BqypDu90kZXMl1ahZ6bcqgrbWpQL-TsLBiykJQ_7HB4rQ.PNG?imwidth=1400\">",
-    "<img src=\"https://media3.s-nbcnews.com/j/newscms/2015_18/1003131/bruno2_6462a62499b91180e00b7352568e7bf5.nbcnews-ux-2880-1000.jpg\">",
-    "<img src=\"https://i.amz.mshcdn.com/oCXSvBhdL-Y3SC15Ll-pqte2khE=/fit-in/850x850/http%3A%2F%2Fmashable.com%2Fwp-content%2Fgallery%2F10-weird-gadgets-that-never-got-off-the-ground%2FMetal%2520Detecting%2520Sandals.jpeg\">",
-    "<img src=\"http://cdn.lifebuzz.com/images/112466/lifebuzz-bc5f6f93d54563a9f9c714c2723959de-limit_2000.jpg\">"];
+    "<img src=\"http://chrisworks.net/wp-content/uploads/2014/11/partly-cloudy.jpg\">",
+    "<img src=\"http://media.istockphoto.com/photos/clear-blue-sky-background-picture-id508544168?k=6&m=508544168&s=612x612&w=0&h=RyH8EQOHEQnn-WdJqjn3EpyW6a0ppCtW_iLHKSBXAlk=\">",
+    "<img src=\"https://pre15.deviantart.net/aafa/th/pre/i/2010/220/9/1/sky_57_by_sed_rah_stock.jpg\">",
+    "<img src=\"http://media.moddb.com/images/downloads/1/120/119783/rain-04.jpg\">",
+    "<img src=\"http://www.trbimg.com/img-58989ac0/turbine/sd-me-light-rain-20170205\">",
+    "<img src=\"https://upload.wikimedia.org/wikipedia/en/6/60/Faisal_Mosque_10.jpg\">",
+    "<img src=\"http://www.guttercleaningnc.com/wp-content/uploads/2013/01/inclement_weather-450.png\">"
+];
 
 var geocoder;
 var map;
@@ -109,22 +112,25 @@ $(document).ready(function() {
                     $("#imgHere").html(images[0]);
                 }
                 else if(weather == "Partly Cloudy") {
-                    $("#imgHere").html(images[0]);
+                    $("#imgHere").html(images[1]);
                 }
                 else if(weather == "Clear") {
-                    $("#imgHere").html(images[0]);
+                    $("#imgHere").html(images[2]);
                 }
                 else if(weather == "Mostly Cloudy") {
-                    $("#imgHere").html(images[0]);
+                    $("#imgHere").html(images[3]);
                 }
                 else if(weather == "Rain") {
-                    $("#imgHere").html(images[0]);
+                    $("#imgHere").html(images[4]);
                 }
-                else if(weather == "Unknown") {
-                    $("#imgHere").html(images[0]);
+                else if(weather == "Light Rain") {
+                    $("#imgHere").html(images[5]);
+                }
+                else if(weather == "Haze") {
+                    $("#imgHere").html(images[6]);
                 }
                 else {
-
+                    $("#imgHere").html(images[7]);
                 }
             }
         });
