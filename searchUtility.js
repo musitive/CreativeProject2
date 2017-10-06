@@ -3,89 +3,73 @@ var citiesArr = [
     "country":"JP"},
     {"city":"New York City",
     "country":"US"},
-    {"city":"Sao Paulo",
-    "country":"BR"},
     {"city":"Seoul",
     "country":"KR"},
     {"city":"Mexico City",
     "country":"MX"},
-    {"city":"Osaka",
-    "country":"JP"},
-    {"city":"Manila",
-    "country":"PH"},
     {"city":"Mumbai",
     "country":"IN"},
-    {"city":"Belhi",
-    "country":"NP"},
     {"city":"Jakarta",
-    "country":"IN"}/*,
+    "country":"IN"},
     {"city":"Lagos",
-    "country":"BR"},
+    "country":"NG"},
     {"city":"Kolkata",
-    "country":"BR"},
+    "country":"IN"},
     {"city":"Cairo",
-    "country":"BR"},
-    {"city":"Los Angeles",
-    "country":"BR"},
+    "country":"EG"},
     {"city":"Buenos Aires",
     "country":"BR"},
     {"city":"Rio de Janeiro",
     "country":"BR"},
-    {"city":"Bali",
-    "country":"BR"},
     {"city":"London",
-    "country":"BR"},
+    "country":"UK"},
     {"city":"Paris",
-    "country":"BR"},
+    "country":"FR"},
     {"city":"Rome",
-    "country":"BR"},
+    "country":"IT"},
     {"city":"Crete",
-    "country":"BR"},
+    "country":"GR"},
     {"city":"Barcelona",
-    "country":"BR"},
+    "country":"ES"},
     {"city":"Siem Reap",
-    "country":"BR"},
+    "country":"KH"},
     {"city":"Prague",
-    "country":"BR"},
+    "country":"CZ"},
     {"city":"Phuket",
-    "country":"BR"},
+    "country":"TH"},
     {"city":"Istanbul",
-    "country":"BR"},
-    {"city":"Jamaica",
-    "country":"BR"},
+    "country":"TR"},
     {"city":"Hoi An",
-    "country":"BR"},
+    "country":"VN"},
     {"city":"Saint Petersburg",
-    "country":"BR"},
+    "country":"RU"},
     {"city":"Roatan",
-    "country":"BR"},
+    "country":"HN"},
     {"city":"Marrakech",
-    "country":"BR"},
-    {"city":"Beijing",
-    "country":"BR"},
+    "country":"MA"},
     {"city":"Ambergris Caye",
-    "country":"BR"},
+    "country":"BZ"},
     {"city":"Taipei",
-    "country":"BR"},
-    {"city":"St Martin",
-    "country":"BR"},
+    "country":"TW"},
     {"city":"Singapore",
-    "country":"BR"},
+    "country":"SG"},
     {"city":"Playa del Carmen",
-    "country":"BR"},
+    "country":"MX"},
     {"city":"Dubai",
-    "country":"BR"},
-    {"city":"Grand Cayman",
-    "country":"BR"},
-    {"city":"Honolulu",
-    "country":"BR"},
+    "country":"AE"},
     {"city":"Kathmandu",
-    "country":"BR"},
+    "country":"NP"},
     {"city":"Bora Bora",
-    "country":"BR"},
-    {"city":"Cusco",
-    "country":"BR"}*/
+    "country":"PF"},
 ]
+
+var images = [
+    "<img src=\"http://www.sitkanature.org/wordpress/wp-content/gallery/20100923/20100923-overcast-2.jpg\">",
+    "<img src=\"https://images-na.ssl-images-amazon.com/images/I/41FJQwQLfgL.jpg\">",
+    "<img src=\"http://www.telegraph.co.uk/content/dam/technology/2017/01/11/hushme_trans_NvBQzQNjv4BqypDu90kZXMl1ahZ6bcqgrbWpQL-TsLBiykJQ_7HB4rQ.PNG?imwidth=1400\">",
+    "<img src=\"https://media3.s-nbcnews.com/j/newscms/2015_18/1003131/bruno2_6462a62499b91180e00b7352568e7bf5.nbcnews-ux-2880-1000.jpg\">",
+    "<img src=\"https://i.amz.mshcdn.com/oCXSvBhdL-Y3SC15Ll-pqte2khE=/fit-in/850x850/http%3A%2F%2Fmashable.com%2Fwp-content%2Fgallery%2F10-weird-gadgets-that-never-got-off-the-ground%2FMetal%2520Detecting%2520Sandals.jpeg\">",
+    "<img src=\"http://cdn.lifebuzz.com/images/112466/lifebuzz-bc5f6f93d54563a9f9c714c2723959de-limit_2000.jpg\">"];
 
 var geocoder;
 var map;
@@ -98,31 +82,10 @@ function initialize() {
   }
   map = new google.maps.Map(document.getElementById('map'), mapOptions);
 }
-/*
-function codeAddress() {
-    var index = 0;
-    var index = Math.floor(Math.random() * citiesArr.length);
-      console.log(citiesArr.length);
-      console.log(index);
-    var address = citiesArr[index].city;
-    geocoder.geocode( { 'address': address}, function(results, status) {
-      if (status == 'OK') {
-        map.setCenter(results[0].geometry.location);
-        var marker = new google.maps.Marker({
-            map: map,
-            position: results[0].geometry.location
-        });
-      } else {
-        alert('Geocode was not successful for the following reason: ' + status);
-      }
-    });
-    
-  }
-*/
+
 $(document).ready(function() {
     $("#weatherButton").click(function(e) {
-        
-        
+        var weather;
         var index = Math.floor(Math.random() * citiesArr.length);
         e.preventDefault();
 
@@ -141,6 +104,28 @@ $(document).ready(function() {
                 everything += "<li>Weather: "+current_weather+"</li>";
                 everything += "</ul>";
                 $("#weather").html(everything);
+                weather = current_weather;
+                if(weather == "Overcast") {
+                    $("#imgHere").html(images[0]);
+                }
+                else if(weather == "Partly Cloudy") {
+                    $("#imgHere").html(images[0]);
+                }
+                else if(weather == "Clear") {
+                    $("#imgHere").html(images[0]);
+                }
+                else if(weather == "Mostly Cloudy") {
+                    $("#imgHere").html(images[0]);
+                }
+                else if(weather == "Rain") {
+                    $("#imgHere").html(images[0]);
+                }
+                else if(weather == "Unknown") {
+                    $("#imgHere").html(images[0]);
+                }
+                else {
+
+                }
             }
         });
 
@@ -157,6 +142,9 @@ $(document).ready(function() {
          } else {
            alert('Geocode was not successful for the following reason: ' + status);
          }
+
+        var url2 = "https://api.gettyimages.com/v3/search/images?fields=id,title,thumb,referral_destinations&key=9hq7azzrrv6h2qhvbe2vjuwm&sort_order=best&phrase=" + citiesArr[index]['city'];
+        console.log(url2);
        });
     });
 

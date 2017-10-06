@@ -5,9 +5,35 @@
   body {
     background-image: url("https://www.acegoals.com/wp-content/uploads/2015/01/webpage-background-image.jpg");
     
-    font-family: monospace;
-    font-size: 2em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;;
+    font-size: 1.5em;
     color: white;
+    margin-bottom: 50px;
+}
+
+#overall {
+    height: 100%;
+    width: 100%;
+    float: left;
+    margin-bottom: 50px;
+}
+
+#weather, #imgHere {
+    width: 50%;
+    float: left;
+    display: block;
+}
+
+#weather {
+    padding-top: 10%;
+}
+
+#imgHere img {
+    width: auto;
+    max-height: 100%;
+    max-width: 80%;
+    display: block;
+    padding: 10%;
 }
 
 p1 {
@@ -51,9 +77,9 @@ h2 {
 	-webkit-border-radius: 28;
 	-moz-border-radius: 28;
 	border-radius: 28px;
-	font-family: Courier New;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 	color: #ffffff;
-	font-size: 20px;
+	font-size: 30px;
 	padding: 10px 20px 10px 20px;
 	text-decoration: none;
   }
