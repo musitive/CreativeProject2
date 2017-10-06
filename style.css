@@ -1,3 +1,69 @@
 #map {
     padding: 15%;
   }
+
+  body {
+    background-image: url("https://www.acegoals.com/wp-content/uploads/2015/01/webpage-background-image.jpg");
+    
+    font-family: monospace;
+    font-size: 2em;
+    color: white;
+}
+
+p1 {
+  padding: none;
+  margin: none;
+  text-align: center;
+}
+
+p2 {
+  text-decoration: underline;
+}
+
+#weather li {
+  text-align: center;
+  margin-left:-2.5%;
+  list-style-type: none;
+}
+
+a {
+    color: white;
+    line-height: 30px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2em;
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.button {
+	background: #3498db;
+	background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+	background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+	background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+	background-image: -o-linear-gradient(top, #3498db, #2980b9);
+	background-image: linear-gradient(to bottom, #3498db, #2980b9);
+	-webkit-border-radius: 28;
+	-moz-border-radius: 28;
+	border-radius: 28px;
+	font-family: Courier New;
+	color: #ffffff;
+	font-size: 20px;
+	padding: 10px 20px 10px 20px;
+	text-decoration: none;
+  }
+  
+  .button:hover {
+	background: #3cb0fd;
+	background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+	background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+	background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+	background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+	background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+	text-decoration: none;
+  }
